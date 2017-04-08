@@ -45,9 +45,8 @@ function love.keypressed(key, scancode, isrepeat)
         local cx = love.graphics:getWidth() / 2
         local cy = love.graphics:getHeight() / 2
         local radius = math.random(50, 400)
-        local segment_count = #vehicles
-        local segment = (math.pi * 2) / segment_count
-        for i=1, segment_count do
+        local segment = (math.pi * 2) / #vehicles
+        for i=1, #vehicles do
            local x = cx + math.cos(segment * i) * radius 
            local y = cy + math.sin(segment * i) * radius 
            vehicles[i].target = vec(x, y)
